@@ -52,6 +52,7 @@ html_parts.append("""<!DOCTYPE html>
             --text-muted: #9CA3AF;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-night); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
 
         /* Barra Lateral */
@@ -216,19 +217,19 @@ html_parts.append("""<!DOCTYPE html>
         <h2 class="artist-name">Sasha Alcalá</h2>
         
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/sasha-alcala/" target="_blank" title="LinkedIn" aria-label="Perfil de LinkedIn">
+            <a href="https://www.linkedin.com/in/sasha-alcala/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Perfil de LinkedIn">
                 <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
-            <a href="https://www.instagram.com/vidayahora/" target="_blank" title="Instagram" aria-label="Perfil de Instagram">
+            <a href="https://www.instagram.com/vidayahora/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Perfil de Instagram">
                 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a href="https://www.tiktok.com/@vidayahora" target="_blank" title="TikTok" aria-label="Perfil de TikTok">
+            <a href="https://www.tiktok.com/@vidayahora" target="_blank" rel="noopener noreferrer" title="TikTok" aria-label="Perfil de TikTok">
                 <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.23-1.13 4.39-2.9 5.71-1.87 1.38-4.39 1.72-6.59 1.1-2.21-.61-4.04-2.24-4.83-4.34-.81-2.22-.52-4.82.79-6.8 1.25-1.9 3.39-3.13 5.62-3.32.06 1.35.03 2.71.04 4.07-1.18.23-2.35.85-3.08 1.83-.71.97-.89 2.27-.53 3.42.34 1.14 1.28 2.05 2.43 2.37 1.18.33 2.51.13 3.48-.6.94-.7 1.46-1.81 1.54-2.98.05-4.47.03-8.94.04-13.41.01-1.28-.01-2.55.02-3.83z"/></svg>
             </a>
-            <a href="https://www.upwork.com/freelancers/~01e9ec50f455c8b3be?mp_source=share" target="_blank" title="Upwork" aria-label="Perfil de Upwork">
+            <a href="https://www.upwork.com/freelancers/~01e9ec50f455c8b3be?mp_source=share" target="_blank" rel="noopener noreferrer" title="Upwork" aria-label="Perfil de Upwork">
                 <svg viewBox="0 0 24 24"><path d="M17.4 6c-1.7 0-3.2 1.1-3.8 2.6-1.4-2.3-2.3-4.9-2.5-7.6H7.8c.1 2 .5 3.9 1.1 5.7L6.6 15c-1 2.6-3.4 4.3-6.2 4.3v3c3.8 0 7.2-2.2 8.8-5.6l2.3-8.1c.3 1.9 1.1 3.7 2.2 5.2l-3.3 8.3h3.5l2-5.1c.5.2 1 .3 1.5.3 3.6 0 6.6-3 6.6-6.6S21 6 17.4 6zm0 10.1c-1.3 0-2.4-.6-3-1.6l.7-2.6c.5-.9 1.4-1.5 2.3-1.5 1.9 0 3.4 1.5 3.4 3.4-.1 1.2-1 2.3-3.4 2.3z"/></svg>
             </a>
-            <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" title="Agendar Reunión" class="calendar-icon" aria-label="Agendar Reunión">
+            <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" rel="noopener noreferrer" title="Agendar Reunión" class="calendar-icon" aria-label="Agendar Reunión">
                 <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
             </a>
         </div>
@@ -248,7 +249,7 @@ html_parts.append("""<!DOCTYPE html>
             <div class="typing-container">
                 <div class="typing-text">synergy for intelligence system.</div>
             </div>
-            <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" class="hero-cta" data-i18n="heroCta">Agendar Asesoría</a>
+            <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" rel="noopener noreferrer" class="hero-cta" data-i18n="heroCta">Agendar Asesoría</a>
             <!-- Audio oculto para el bip electrónico -->
             <audio id="beep-sound" src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVoGAACBhYqPjYyMj46PjI2PjoyOj4yNj46Mjo+MjY+OjI6PjI2PjoyOj4yNj46Mjo+MjY+OjI6PjI2PjoyOj4yNj46Mjo+MjY+OjI6PjI2PjoyOj4yNjw==" preload="auto"></audio>
         </div>
@@ -302,7 +303,7 @@ html_parts.append("""<!DOCTYPE html>
 for p in portfolio_data:
     cat = "web" if p['language'] in ['HTML', 'Astro', 'TypeScript', 'JavaScript', 'CSS'] else "data"
     html_parts.append(f"""
-            <a href="{p['url']}" target="_blank" class="card reveal" data-category="{cat}">
+            <a href="{p['url']}" target="_blank" rel="noopener noreferrer" class="card reveal" data-category="{cat}">
                 <h2>{p['name']}</h2>
                 <p data-i18n="repo_{p['name'].replace(' ', '_')}">{p['description']}</p>
                 <div class="card-footer">
@@ -413,7 +414,7 @@ html_parts.append("""
         </div>
 
     </div>
-    <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" class="fab">
+    <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" rel="noopener noreferrer" class="fab">
         <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
     </a>
 
@@ -438,7 +439,7 @@ html_parts.append("""
                     <h4 style="color: #FBBF24; margin-bottom: 0.5rem;" data-i18n="csResultTitle">Impacto / KPIs</h4>
                     <ul id="cs-results" style="color: #fff; margin-left: 1.5rem; line-height: 1.6;"></ul>
                 </div>
-                <a id="cs-link" href="#" target="_blank" class="hero-cta" style="margin-top: 0; padding: 0.5rem 1.5rem; font-size: 1rem;" data-i18n="csVisit">Visitar Sitio</a>
+                <a id="cs-link" href="#" target="_blank" rel="noopener noreferrer" class="hero-cta" style="margin-top: 0; padding: 0.5rem 1.5rem; font-size: 1rem;" data-i18n="csVisit">Visitar Sitio</a>
             </div>
         </div>
     </div>

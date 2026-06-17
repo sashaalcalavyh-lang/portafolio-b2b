@@ -38,7 +38,7 @@
         /* Toggle Idioma */
         .lang-toggle { position: absolute; top: 1.5rem; right: 1.5rem; cursor: pointer; font-weight: bold; color: var(--text-muted); font-size: 0.9rem; z-index: 20; background: rgba(0,0,0,0.4); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid rgba(56,189,248,0.2); transition: all 0.3s; }
         .lang-toggle:hover { border-color: var(--slime-blue); }
-        .lang-toggle span { transition: color 0.3s; }
+        .lang-toggle span { transition: color 0.3s; cursor: pointer; padding: 0.2rem; }
         .lang-toggle span.active { color: var(--slime-blue); text-shadow: 0 0 8px var(--slime-glow); }
 
         /* Menú Vertical */
@@ -176,8 +176,8 @@
 </head>
 <body>
     <div class="sidebar">
-        <div class="lang-toggle" onclick="toggleLang()">
-            <span id="lang-es" class="active">ES</span> / <span id="lang-en">EN</span> / <span id="lang-pt">PT</span>
+        <div class="lang-toggle">
+            <span id="lang-es" class="active" onclick="toggleLang('es')">ES</span> / <span id="lang-en" onclick="toggleLang('en')">EN</span> / <span id="lang-pt" onclick="toggleLang('pt')">PT</span>
         </div>
         <img src="public/Foto cv.png" alt="Sasha" class="profile-pic">
         <h2 class="artist-name">Sasha Alcalá</h2>
@@ -765,9 +765,9 @@
 
         let currentLang = 'es';
         const langs = ['es', 'en', 'pt'];
-        function toggleLang() {
-            let idx = langs.indexOf(currentLang);
-            currentLang = langs[(idx + 1) % langs.length];
+        function toggleLang(lang) {
+            if (lang === currentLang) return;
+            currentLang = lang;
             document.getElementById('lang-es').classList.toggle('active', currentLang === 'es');
             document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
             document.getElementById('lang-pt').classList.toggle('active', currentLang === 'pt');

@@ -201,9 +201,9 @@
         </div>
 
         <div class="menu">
-            <a href="#" class="menu-item active" onclick="openAboutModal(event)">Sobre mí</a>
-            <a href="#trabajos" class="menu-item">Trabajos realizados</a>
-            <a href="#servicios" class="menu-item">Servicios</a>
+            <a href="#" class="menu-item active" onclick="openAboutModal(event)" data-i18n="menuAbout">Sobre mí</a>
+            <a href="#trabajos" class="menu-item" data-i18n="menuWork">Trabajos realizados</a>
+            <a href="#servicios" class="menu-item" data-i18n="menuServices">Servicios</a>
         </div>
     </div>
 
@@ -228,18 +228,18 @@
         </div>
 
         <div id="trabajos" style="padding-top:2rem; margin-top:-2rem;"></div>
-        <h3 class="section-title reveal">Trabajos Realizados</h3>
+        <h3 class="section-title reveal" data-i18n="sectionWork">Trabajos Realizados</h3>
         <div class="filter-container reveal">
-            <button class="filter-btn active" onclick="filterProjects('all')">Todos</button>
-            <button class="filter-btn" onclick="filterProjects('web')">Web & Gestión</button>
-            <button class="filter-btn" onclick="filterProjects('data')">Data & Automations</button>
+            <button class="filter-btn active" onclick="filterProjects('all')" data-i18n="filterAll">Todos</button>
+            <button class="filter-btn" onclick="filterProjects('web')" data-i18n="filterWeb">Web & Gestión</button>
+            <button class="filter-btn" onclick="filterProjects('data')" data-i18n="filterData">Data & Automations</button>
         </div>
         <div class="bento-grid">
             
             <!-- Proyectos Principales (Webs) -->
             <a href="#" onclick="openCaseStudy('lincoln', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
                 <h2 style="color: #FBBF24;">Lincoln Physiotherapies</h2>
-                <p>Plataforma web con integración Front-End y Arquitectura Back-End (n8n). Captura de leads automática, agendamientos y embudos de ventas para clínica.</p>
+                <p data-i18n="cardLincolnDesc">Plataforma web con integración Front-End y Arquitectura Back-End (n8n). Captura de leads automática, agendamientos y embudos de ventas para clínica.</p>
                 <div class="card-footer">
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Web & n8n</span>
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
@@ -248,7 +248,7 @@
             
             <a href="#" onclick="openCaseStudy('famores', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
                 <h2 style="color: #FBBF24;">Famores</h2>
-                <p>Arquitectura de Checkout, optimización de UX y Automatización Operativa. Integración de pasarelas de pago Flow con mensajería inteligente por WhatsApp.</p>
+                <p data-i18n="cardFamoresDesc">Arquitectura de Checkout, optimización de UX y Automatización Operativa. Integración de pasarelas de pago Flow con mensajería inteligente por WhatsApp.</p>
                 <div class="card-footer">
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Checkout & Flow</span>
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
@@ -257,7 +257,7 @@
             
             <a href="#" onclick="openCaseStudy('petexotic', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
                 <h2 style="color: #FBBF24;">Pet Exotic</h2>
-                <p>Sitio web interno/público para clínica veterinaria. Optimización de procesos administrativos, gestión de información de valor de consultas y digitalización de flujos.</p>
+                <p data-i18n="cardPetDesc">Sitio web interno/público para clínica veterinaria. Optimización de procesos administrativos, gestión de información de valor de consultas y digitalización de flujos.</p>
                 <div class="card-footer">
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Web & Gestión</span>
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
@@ -379,7 +379,7 @@
         </div>
 
         <div id="servicios" class="services-section">
-            <h3 class="section-title reveal">Servicios</h3>
+            <h3 class="section-title reveal" data-i18n="sectionServices">Servicios</h3>
             <div class="services-grid">
                 
                 <div class="service-card reveal">
@@ -387,8 +387,8 @@
                         <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
                     </div>
                     <div class="service-content">
-                        <h3>Automatización de Tareas (n8n)</h3>
-                        <p>Conecto tus aplicaciones del día a día (como agendas y planillas) para que trabajen solas. Elimino el ingreso manual de información, ahorrando horas de trabajo y reduciendo el margen de error a cero.</p>
+                        <h3 data-i18n="srv1Title">Automatización de Tareas (n8n)</h3>
+                        <p data-i18n="srv1Desc">Conecto tus aplicaciones del día a día (como agendas y planillas) para que trabajen solas. Elimino el ingreso manual de información, ahorrando horas de trabajo y reduciendo el margen de error a cero.</p>
                     </div>
                 </div>
 
@@ -397,8 +397,8 @@
                         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     </div>
                     <div class="service-content">
-                        <h3>Embudos de Cobro y Seguimiento</h3>
-                        <p>Diseño flujos automáticos que disparan correos personalizados a tus clientes. Desde el resumen de la atención hasta el enlace de pago directo integrado, reduciendo la fricción para que cobres más rápido.</p>
+                        <h3 data-i18n="srv2Title">Embudos de Cobro y Seguimiento</h3>
+                        <p data-i18n="srv2Desc">Diseño flujos automáticos que disparan correos personalizados a tus clientes. Desde el resumen de la atención hasta el enlace de pago directo integrado, reduciendo la fricción para que cobres más rápido.</p>
                     </div>
                 </div>
 
@@ -407,8 +407,8 @@
                         <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
                     </div>
                     <div class="service-content">
-                        <h3>Estructuración de Datos</h3>
-                        <p>Mi cerebro detecta patrones y ordena la información. Tomo bases de datos desordenadas y las transformo mediante lógica implacable en sistemas limpios y organizados, listos para ser utilizados.</p>
+                        <h3 data-i18n="srv3Title">Estructuración de Datos</h3>
+                        <p data-i18n="srv3Desc">Mi cerebro detecta patrones y ordena la información. Tomo bases de datos desordenadas y las transformo mediante lógica implacable en sistemas limpios y organizados, listos para ser utilizados.</p>
                     </div>
                 </div>
 
@@ -417,8 +417,8 @@
                         <svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm6 14H7v-5h2v5zm4 0h-2v-9h2v9zm4 0h-2v-3h2v3z"/></svg>
                     </div>
                     <div class="service-content">
-                        <h3>Análisis y Reportes Claros</h3>
-                        <p>Traduzco la información acumulada de tu operación en reportes visuales simples. Te entrego el escenario real de tu negocio para que tomes decisiones basadas en evidencia, nunca más en intuición.</p>
+                        <h3 data-i18n="srv4Title">Análisis y Reportes Claros</h3>
+                        <p data-i18n="srv4Desc">Traduzco la información acumulada de tu operación en reportes visuales simples. Te entrego el escenario real de tu negocio para que tomes decisiones basadas en evidencia, nunca más en intuición.</p>
                     </div>
                 </div>
 
@@ -427,8 +427,8 @@
                         <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
                     </div>
                     <div class="service-content">
-                        <h3>Integración Web y Reservas</h3>
-                        <p>Configuro y optimizo plataformas de agendamiento para capturar clientes automáticamente. Hago que la información viaje directo desde el clic en tu web hasta tu base de datos sin que muevas un dedo.</p>
+                        <h3 data-i18n="srv5Title">Integración Web y Reservas</h3>
+                        <p data-i18n="srv5Desc">Configuro y optimizo plataformas de agendamiento para capturar clientes automáticamente. Hago que la información viaje directo desde el clic en tu web hasta tu base de datos sin que muevas un dedo.</p>
                     </div>
                 </div>
 
@@ -437,8 +437,8 @@
                         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                     </div>
                     <div class="service-content">
-                        <h3>Optimización de UX Front-End</h3>
-                        <p>Audito y limpio visualmente tu plataforma web. Elimino la fricción en el proceso de compra estandarizando los pasos, para que el cliente tenga un viaje rápido, claro y enfocado en la conversión.</p>
+                        <h3 data-i18n="srv6Title">Optimización de UX Front-End</h3>
+                        <p data-i18n="srv6Desc">Audito y limpio visualmente tu plataforma web. Elimino la fricción en el proceso de compra estandarizando los pasos, para que el cliente tenga un viaje rápido, claro y enfocado en la conversión.</p>
                     </div>
                 </div>
 
@@ -523,21 +523,21 @@
             </div>
             
             <div class="tabs">
-                <button class="tab-link active" onclick="openTab(event, 'tab-perfil')">Perfil Profesional</button>
-                <button class="tab-link" onclick="openTab(event, 'tab-aptitudes')">Aptitudes y Tecnologías</button>
-                <button class="tab-link" onclick="openTab(event, 'tab-experiencia')">Experiencia</button>
-                <button class="tab-link" onclick="openTab(event, 'tab-educacion')">Educación</button>
+                <button class="tab-link active" onclick="openTab(event, 'tab-perfil')" data-i18n="tabProfile">Perfil Profesional</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-aptitudes')" data-i18n="tabSkills">Aptitudes y Tecnologías</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-experiencia')" data-i18n="tabExp">Experiencia</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-educacion')" data-i18n="tabEdu">Educación</button>
             </div>
 
             <div id="tab-perfil" class="tab-content" style="display:block;">
-                <p>Me dedico al análisis de datos y a crear automatizaciones inteligentes para simplificar el día a día de los equipos de trabajo. Al venir del rubro de la gestión y los servicios, viví de cerca cómo el desorden administrativo le quita tiempo valioso a un negocio. Como entiendo perfectamente esos problemas desde adentro, combino esa mirada práctica con herramientas como Python, SQL, n8n y tecnologías Cloud. Lo que hago es crear soluciones inteligentes que eliminan las tareas repetitivas, para que el equipo tome decisiones basadas en datos reales y evidencia, en lugar de simples intuiciones. Hoy busco sumarme a un equipo innovador, de forma remota, que me desafíe a seguir evolucionando como profesional mientras aporto valor real.</p>
+                <p data-i18n="tabPerfilDesc">Me dedico al análisis de datos y a crear automatizaciones inteligentes para simplificar el día a día de los equipos de trabajo. Al venir del rubro de la gestión y los servicios, viví de cerca cómo el desorden administrativo le quita tiempo valioso a un negocio. Como entiendo perfectamente esos problemas desde adentro, combino esa mirada práctica con herramientas como Python, SQL, n8n y tecnologías Cloud. Lo que hago es crear soluciones inteligentes que eliminan las tareas repetitivas, para que el equipo tome decisiones basadas en datos reales y evidencia, en lugar de simples intuiciones. Hoy busco sumarme a un equipo innovador, de forma remota, que me desafíe a seguir evolucionando como profesional mientras aporto valor real.</p>
             </div>
 
             <div id="tab-aptitudes" class="tab-content">
                 <div style="width: 100%; max-width: 350px; margin: 0 auto 2rem;">
                     <canvas id="skillsChart"></canvas>
                 </div>
-                <ul>
+                <ul data-i18n="tabAptitudesList">
                     <li><strong>Análisis y Datos:</strong> Python, SQL, Análisis Estadístico, Limpieza de Datos (Data Wrangling), Power BI, Tableau.</li>
                     <li><strong>Desarrollo y UX:</strong> Astro, JavaScript (Vanilla), CSS, GitHub (Control de versiones), Diseño de embudos de conversión (UI/UX).</li>
                     <li><strong>Inteligencia Artificial:</strong> Procesamiento de Lenguaje Natural (NLP), Redes Neuronales Profundas (DNN), Aprendizaje Profundo.</li>
@@ -679,6 +679,17 @@
 
         const i18n = {
             es: { heroCta: "Agendar Asesoría", sectionTestimonials: "Testimonios",
+                  menuAbout: "Sobre mí", menuWork: "Trabajos realizados", menuServices: "Servicios", sectionWork: "Trabajos Realizados", sectionServices: "Servicios", tabProfile: "Perfil Profesional", tabSkills: "Aptitudes y Tecnologías", tabExp: "Experiencia", tabEdu: "Educación",
+                  filterAll: "Todos", filterWeb: "Web & Gestión", filterData: "Data & Automations",
+                  cardLincolnDesc: "Plataforma web con integración Front-End y Arquitectura Back-End (n8n). Captura de leads automática, agendamientos y embudos de ventas para clínica.",
+                  cardFamoresDesc: "Arquitectura de Checkout, optimización de UX y Automatización Operativa. Integración de pasarelas de pago Flow con mensajería inteligente por WhatsApp.",
+                  cardPetDesc: "Sitio web interno/público para clínica veterinaria. Optimización de procesos administrativos, gestión de información de valor de consultas y digitalización de flujos.",
+                  srv1Title: "Automatización de Tareas (n8n)", srv1Desc: "Conecto tus aplicaciones del día a día (como agendas y planillas) para que trabajen solas. Elimino el ingreso manual de información, ahorrando horas de trabajo y reduciendo el margen de error a cero.",
+                  srv2Title: "Embudos de Cobro y Seguimiento", srv2Desc: "Diseño flujos automáticos que disparan correos personalizados a tus clientes. Desde el resumen de la atención hasta el enlace de pago directo integrado, reduciendo la fricción para que cobres más rápido.",
+                  srv3Title: "Estructuración de Datos", srv3Desc: "Mi cerebro detecta patrones y ordena la información. Tomo bases de datos desordenadas y las transformo mediante lógica implacable en sistemas limpios y organizados, listos para ser utilizados.",
+                  srv4Title: "Análisis y Reportes Claros", srv4Desc: "Traduzco la información acumulada de tu operación en reportes visuales simples. Te entrego el escenario real de tu negocio para que tomes decisiones basadas en evidencia, nunca más en intuición.",
+                  srv5Title: "Integración Web y Reservas", srv5Desc: "Configuro y optimizo plataformas de agendamiento para capturar clientes automáticamente. Hago que la información viaje directo desde el clic en tu web hasta tu base de datos sin que muevas un dedo.",
+                  srv6Title: "Optimización de UX Front-End", srv6Desc: "Audito y limpio visualmente tu plataforma web. Elimino la fricción en el proceso de compra estandarizando los pasos, para que el cliente tenga un viaje rápido, claro y enfocado en la conversión.",
                   csProblemTitle: "El Desafío", csSolutionTitle: "La Solución", csResultTitle: "Impacto / KPIs", csVisit: "Visitar Sitio",
                   test1Desc: '"La automatización de nuestros agendamientos nos ahorró casi 20 horas semanales de gestión manual. El sistema funciona solo."', test1Role: "Automatización n8n & Reservas",
                   test2Desc: '"El nuevo flujo de checkout y los recordatorios automáticos por WhatsApp aumentaron nuestra conversión de pagos un 30%."', test2Role: "Optimización UX & Pagos",
@@ -695,6 +706,17 @@
                   repo_Portafolio_B2B: "Automatización y modelado 3D.", repo_Famores_App: "MVP Transaccional Famores - Landing Page en Astro con integración a Google Sheets.", repo_Famores: "Automatización y modelado 3D.", repo_Prueba_Redes_Neuronales: "Automatización y modelado 3D.", repo_Cnn_Escenarios_Naturales: "Clasificación de imágenes con TensorFlow."
             },
             en: { heroCta: "Book a Call", sectionTestimonials: "Testimonials",
+                  menuAbout: "About me", menuWork: "Previous Work", menuServices: "Services", sectionWork: "Previous Work", sectionServices: "Services", tabProfile: "Professional Profile", tabSkills: "Skills and Technologies", tabExp: "Experience", tabEdu: "Education",
+                  filterAll: "All", filterWeb: "Web & Management", filterData: "Data & Automations",
+                  cardLincolnDesc: "Web platform with Front-End integration and Back-End Architecture (n8n). Automatic lead capture, scheduling, and sales funnels for clinic.",
+                  cardFamoresDesc: "Checkout Architecture, UX optimization, and Operational Automation. Flow payment gateway integration with smart WhatsApp messaging.",
+                  cardPetDesc: "Internal/public website for veterinary clinic. Optimization of administrative processes, consultation value information management, and flow digitization.",
+                  srv1Title: "Task Automation (n8n)", srv1Desc: "I connect your day-to-day apps (like calendars and spreadsheets) so they work on their own. I eliminate manual data entry, saving hours of work and reducing the margin of error to zero.",
+                  srv2Title: "Billing and Follow-up Funnels", srv2Desc: "I design automated flows that trigger personalized emails to your clients. From the service summary to the direct payment link, reducing friction so you get paid faster.",
+                  srv3Title: "Data Structuring", srv3Desc: "My brain detects patterns and organizes information. I take messy databases and transform them using ruthless logic into clean, organized, ready-to-use systems.",
+                  srv4Title: "Clear Analysis and Reporting", srv4Desc: "I translate the accumulated data from your operation into simple visual reports. I give you the real scenario of your business so you can make evidence-based decisions, never on intuition again.",
+                  srv5Title: "Web Integration and Bookings", srv5Desc: "I configure and optimize booking platforms to capture clients automatically. I make information travel directly from the click on your website to your database without lifting a finger.",
+                  srv6Title: "Front-End UX Optimization", srv6Desc: "I audit and visually clean up your web platform. I eliminate friction in the purchasing process by standardizing steps, ensuring the client has a fast, clear journey focused on conversion.",
                   csProblemTitle: "The Challenge", csSolutionTitle: "The Solution", csResultTitle: "Impact / KPIs", csVisit: "Visit Site",
                   test1Desc: '"Automating our scheduling saved us almost 20 hours a week of manual management. The system runs itself."', test1Role: "n8n Automation & Booking",
                   test2Desc: '"The new checkout flow and automated WhatsApp reminders boosted our payment conversion rate by 30%."', test2Role: "UX Optimization & Payments",

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasha | Data Scientist & AI Automation</title>
+    <meta name="description" content="Portafolio de Sasha Alcalá. Data Scientist, Analista de Datos y Especialista en Automatización de Procesos con IA.">
+    <meta property="og:title" content="Sasha Alcalá | Data & AI Automation">
+    <meta property="og:description" content="Automatizo procesos operativos y diseño estrategias de datos para escalar negocios sin fricción.">
+    <meta property="og:image" content="public/Foto cv.png">
+    <meta property="og:type" content="website">
+    <style>
+        :root {
+            --bg-night: #0B0C10;
+            --bg-sidebar: #12141D;
+            --slime-blue: #38BDF8;
+            --slime-glow: rgba(56, 189, 248, 0.4);
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg-night); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+        /* Barra Lateral */
+        .sidebar { width: 25%; background: var(--bg-sidebar); padding: 3rem 2rem; display: flex; flex-direction: column; align-items: center; border-right: 1px solid rgba(56, 189, 248, 0.1); z-index: 10; }
+        .profile-pic { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--slime-blue); box-shadow: 0 0 25px var(--slime-glow); object-fit: cover; margin-bottom: 1.5rem; transition: transform 0.3s; }
+        .profile-pic:hover { transform: scale(1.05); }
+        .artist-name { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; text-align: center; }
+        
+        /* Redes Sociales (NUEVO) */
+        .social-icons { display: flex; gap: 0.8rem; margin-bottom: 3rem; }
+        .social-icons a { color: var(--slime-blue); display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: rgba(255,255,255,0.03); border-radius: 50%; border: 1px solid rgba(56, 189, 248, 0.2); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .social-icons a:hover { color: #000; background: var(--slime-blue); box-shadow: 0 0 15px var(--slime-glow); transform: translateY(-4px); }
+        .social-icons a.calendar-icon { color: #000; background: #FBBF24; border-color: #FBBF24; }
+        .social-icons a.calendar-icon:hover { background: #F59E0B; color: #000; box-shadow: 0 0 15px rgba(251, 191, 36, 0.6); transform: translateY(-4px); }
+        .social-icons svg { width: 18px; height: 18px; fill: currentColor; }
+        
+        /* Toggle Idioma */
+        .lang-toggle { position: absolute; top: 1.5rem; right: 1.5rem; cursor: pointer; font-weight: bold; color: var(--text-muted); font-size: 0.9rem; z-index: 20; background: rgba(0,0,0,0.4); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid rgba(56,189,248,0.2); transition: all 0.3s; }
+        .lang-toggle:hover { border-color: var(--slime-blue); }
+        .lang-toggle span { transition: color 0.3s; }
+        .lang-toggle span.active { color: var(--slime-blue); text-shadow: 0 0 8px var(--slime-glow); }
+
+        /* Menú Vertical */
+        .menu { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+        .menu-item { background: rgba(255,255,255,0.03); color: var(--text-muted); padding: 1rem; border-radius: 25px; text-decoration: none; text-align: center; font-weight: 600; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .menu-item:hover, .menu-item.active { background: var(--slime-blue); color: #000; box-shadow: 0 5px 20px var(--slime-glow); transform: translateX(10px); }
+
+        /* Área Principal */
+        .main-area { width: 75%; height: 100vh; overflow-y: auto; padding: 5rem; position: relative; background: radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.08), var(--bg-night) 70%); }
+        /* Great Sage Aesthetic Hero */
+        .hero-section { position: relative; margin-bottom: 4rem; padding: 4.5rem 3rem; border-radius: 20px; background: radial-gradient(circle at right, rgba(139, 92, 246, 0.15), #0B0C10 70%); border: 1px solid rgba(56, 189, 248, 0.2); box-shadow: inset 0 0 50px rgba(56, 189, 248, 0.05), 0 0 30px rgba(139, 92, 246, 0.1); overflow: hidden; }
+        /* Honeycomb Filter */
+        .hero-section::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px); background-size: 15px 15px; pointer-events: none; z-index: 1; }
+        /* Laser Scan */
+        .laser-scan { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, transparent, var(--slime-blue), transparent); box-shadow: 0 0 15px var(--slime-blue); animation: scan 3s linear infinite; z-index: 2; }
+        @keyframes scan { 0% { top: -10%; } 100% { top: 110%; } }
+        /* Runic Circle */
+        .runic-circle { position: absolute; top: 50%; right: -5%; width: 350px; height: 350px; transform: translateY(-50%); border: 2px dashed rgba(139, 92, 246, 0.5); border-radius: 50%; animation: spin 20s linear infinite; z-index: 0; opacity: 0.6; }
+        .runic-circle::before { content: ''; position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 50%; animation: spin-reverse 15s linear infinite; }
+        .runic-circle::after { content: ''; position: absolute; top: -10px; left: 50%; width: 20px; height: 20px; background: #FBBF24; border-radius: 50%; box-shadow: 0 0 20px #FBBF24; }
+        @keyframes spin { 100% { transform: translateY(-50%) rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+        
+        .hero-title { font-size: 3.8rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; color: #fff; position: relative; z-index: 3; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+        .hero-title span { color: var(--slime-blue); }
+        .glitch-effect { transition: all 0.3s; cursor: crosshair; }
+        .glitch-effect:hover { animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; color: #FBBF24; text-shadow: 0 0 15px #FBBF24; }
+        @keyframes glitch { 0% { transform: translate(0); text-shadow: -4px 0 rgba(255,0,0,0.8), 4px 0 rgba(0,255,255,0.8); } 20% { transform: translate(-3px, 3px); } 40% { transform: translate(-3px, -3px); } 60% { transform: translate(3px, 3px); } 80% { transform: translate(3px, -3px); } 100% { transform: translate(0); } }
+
+        /* Animación de Escritura (Modificada) */
+        .typing-container { display: inline-block; position: relative; z-index: 3; background: rgba(0,0,0,0.6); padding: 0.8rem 1.5rem; border-left: 4px solid #FBBF24; border-radius: 0 10px 10px 0; box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+        .typing-text { font-family: monospace; font-size: 1.5rem; color: #FBBF24; border-right: 3px solid #FBBF24; white-space: nowrap; overflow: hidden; width: 0; animation: typing 6s steps(35, end) infinite alternate, blink 0.75s step-end infinite; }
+        @keyframes typing { 0%, 10% { width: 0; } 90%, 100% { width: 33ch; } }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #FBBF24; } }
+
+        /* Hero CTA */
+        .hero-cta { display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--slime-blue), rgba(139, 92, 246, 0.8)); color: #000; font-size: 1.1rem; font-weight: bold; border-radius: 50px; text-decoration: none; box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin-top: 2rem; position: relative; z-index: 3; border: 1px solid rgba(255,255,255,0.2); }
+        .hero-cta:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 0 30px rgba(56, 189, 248, 0.8), inset 0 0 15px rgba(255,255,255,0.4); color: #000; }
+
+        /* Marquee Tech Stack */
+        .tech-marquee { overflow: hidden; white-space: nowrap; width: 100%; position: relative; margin-bottom: 3rem; padding: 1rem 0; border-top: 1px solid rgba(56, 189, 248, 0.1); border-bottom: 1px solid rgba(56, 189, 248, 0.1); background: rgba(0,0,0,0.3); }
+        .tech-marquee::before, .tech-marquee::after { content: ''; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; pointer-events: none; }
+        .tech-marquee::before { left: 0; background: linear-gradient(to right, var(--bg-night), transparent); }
+        .tech-marquee::after { right: 0; background: linear-gradient(to left, var(--bg-night), transparent); }
+        .marquee-content { display: inline-block; animation: scrollMarquee 20s linear infinite; }
+        .marquee-content span { display: inline-block; padding: 0 2rem; font-size: 1.1rem; font-weight: bold; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; }
+        @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Grilla de Repositorios */
+        .section-title { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; display: inline-block; }
+        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { position: relative; overflow: hidden; background: rgba(11, 12, 16, 0.7); border: 1px solid rgba(56, 189, 248, 0.1); border-radius: 20px; padding: 2rem; text-decoration: none; display: flex; flex-direction: column; backdrop-filter: blur(12px); transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 50%); opacity: 0; transition: opacity 0.4s; pointer-events: none; z-index: 0; }
+        .card:hover::before { opacity: 1; transform: scale(1.1); }
+        .card:hover { transform: translateY(-8px) scale(1.02); border-color: rgba(56, 189, 248, 0.6); box-shadow: 0 15px 40px rgba(0,0,0,0.9), inset 0 0 25px rgba(139, 92, 246, 0.3); }
+        .card > * { position: relative; z-index: 1; }
+        .card h2 { font-size: 1.4rem; color: #fff; margin-bottom: 0.8rem; text-shadow: 0 0 8px rgba(255,255,255,0.4); transition: color 0.3s; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; flex-grow: 1; margin-bottom: 1.5rem; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; }
+        .badge { background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(139, 92, 246, 0.1)); color: #fff; text-shadow: 0 0 5px var(--slime-glow); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.4rem 0.9rem; border-radius: 50px; font-size: 0.8rem; font-weight: bold; transition: all 0.3s; }
+        .card:hover .badge { border-color: rgba(56, 189, 248, 0.8); box-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
+
+        /* Filtros */
+        .filter-container { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .filter-btn { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid rgba(56, 189, 248, 0.2); padding: 0.5rem 1.5rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-weight: bold; }
+        .filter-btn:hover, .filter-btn.active { background: var(--slime-blue); color: #000; box-shadow: 0 0 15px var(--slime-glow); }
+
+        /* Servicios */
+        .services-section { margin-top: 6rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
+        .service-card { position: relative; overflow: hidden; display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.8rem; border-radius: 20px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); background: rgba(11, 12, 16, 0.5); border: 1px solid rgba(139, 92, 246, 0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.6); }
+        .service-card::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent); transform: skewX(-20deg); transition: none; z-index: 0; pointer-events: none; }
+        .service-card:hover::after { left: 200%; transition: left 0.6s ease-in-out; }
+        .service-card:hover { transform: translateY(-8px); background: rgba(20, 22, 33, 0.8); border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 20px rgba(139, 92, 246, 0.2); }
+        .service-icon { background: linear-gradient(135deg, var(--slime-blue), rgba(139, 92, 246, 0.8)); color: #fff; width: 65px; height: 65px; min-width: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px var(--slime-glow); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 1; }
+        .service-card:hover .service-icon { transform: scale(1.15) rotate(10deg); box-shadow: 0 0 30px rgba(139, 92, 246, 0.6), 0 0 15px var(--slime-blue); }
+        .service-icon svg { width: 30px; height: 30px; fill: currentColor; }
+        .service-content { position: relative; z-index: 1; }
+        .service-content h3 { color: #fff; font-size: 1.3rem; margin-bottom: 0.8rem; letter-spacing: 0.5px; text-shadow: 0 0 8px rgba(255,255,255,0.3); }
+        .service-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Botón Flotante */
+        .fab { position: fixed; bottom: 2rem; right: 2rem; width: 65px; height: 65px; background: #FBBF24; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4); cursor: pointer; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; z-index: 50;}
+        .fab:hover { transform: scale(1.15) rotate(10deg); background: #F59E0B; color: #000; }
+        .fab svg { width: 30px; height: 30px; fill: currentColor; }
+
+        /* Modal Sobre Mí */
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+        .modal-content { background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.1), var(--bg-sidebar) 80%); margin: 3% auto; padding: 2.5rem; border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 20px; width: 85%; max-width: 900px; color: var(--text-main); position: relative; box-shadow: inset 0 0 30px rgba(56, 189, 248, 0.05), 0 10px 40px rgba(0,0,0,0.9); max-height: 85vh; overflow-y: auto; overflow-x: hidden; }
+        .modal-content::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px); background-size: 15px 15px; pointer-events: none; z-index: 0; }
+        .modal-scan { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.8), transparent); box-shadow: 0 0 10px rgba(139, 92, 246, 0.5); animation: scan 4s linear infinite; z-index: 1; pointer-events: none; }
+        .modal-inner { position: relative; z-index: 2; }
+        .close-modal { color: var(--text-muted); position: absolute; right: 25px; top: 15px; font-size: 35px; font-weight: bold; cursor: pointer; transition: color 0.3s; z-index: 5; }
+        .close-modal:hover { color: var(--slime-blue); }
+        .modal-header { text-align: center; margin-bottom: 2rem; position: relative; z-index: 2; }
+        .modal-header h2 { font-size: 2.4rem; color: #fff; margin-bottom: 0.5rem; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); font-weight: 900; letter-spacing: 2px; display: inline-block; }
+        .subtitle { font-size: 1.1rem; color: #FBBF24; margin-bottom: 1rem; text-shadow: 0 0 5px rgba(251, 191, 36, 0.3); }
+        .contact-info { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; color: var(--text-muted); font-size: 0.9rem; }
+        .tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem; overflow-x: auto; }
+        .tab-link { background: none; border: none; outline: none; color: var(--text-muted); padding: 10px 20px; cursor: pointer; font-size: 1rem; font-weight: 600; font-family: 'Inter', sans-serif; transition: all 0.3s; white-space: nowrap; }
+        .tab-link:hover { color: #fff; }
+        .tab-link.active { color: var(--slime-blue); border-bottom: 2px solid var(--slime-blue); }
+        .tab-content { display: none; animation: fadeIn 0.4s; line-height: 1.6; }
+        .tab-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+        .tab-content li { margin-bottom: 0.6rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .timeline { border-left: 2px solid var(--slime-blue); padding-left: 1.5rem; margin-left: 0.5rem; margin-top: 1rem; }
+        .timeline-item { margin-bottom: 2rem; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -1.9rem; top: 0.3rem; width: 12px; height: 12px; border-radius: 50%; background: var(--slime-blue); box-shadow: 0 0 10px var(--slime-glow); }
+        .timeline-item h4 { color: #fff; font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .timeline-item span { color: var(--slime-blue); font-size: 0.85rem; display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        
+        /* Diseño Responsivo y Animaciones Globales */
+        @media (max-width: 900px) {
+            body { flex-direction: column; overflow-y: auto; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid rgba(56, 189, 248, 0.1); padding: 2rem 1rem; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem; }
+            .profile-pic { width: 80px; height: 80px; margin-bottom: 0; }
+            .artist-name { margin-bottom: 0; font-size: 1.3rem; }
+            .social-icons { margin-bottom: 0; width: 100%; justify-content: center; }
+            .menu { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .menu-item { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            .main-area { width: 100%; height: auto; padding: 2rem 1rem; overflow: visible; }
+            .hero-section { padding: 2.5rem 1.5rem; }
+            .hero-title { font-size: 2.2rem; }
+            .runic-circle { right: 50%; transform: translate(50%, -50%); opacity: 0.2; }
+        }
+        
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .particles-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .particle { position: absolute; background: var(--slime-blue); border-radius: 50%; box-shadow: 0 0 10px var(--slime-glow); animation: floatUp linear infinite; opacity: 0.6; }
+        @keyframes floatUp { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 20% { opacity: 0.8; } 100% { transform: translateY(-10vh) scale(1); opacity: 0; } }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="lang-toggle" onclick="toggleLang()">
+            <span id="lang-es" class="active">ES</span> / <span id="lang-en">EN</span>
+        </div>
+        <img src="public/Foto cv.png" alt="Sasha" class="profile-pic">
+        <h2 class="artist-name">Sasha Alcalá</h2>
+        
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/sasha-alcala/" target="_blank" title="LinkedIn" aria-label="Perfil de LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/vidayahora/" target="_blank" title="Instagram" aria-label="Perfil de Instagram">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@vidayahora" target="_blank" title="TikTok" aria-label="Perfil de TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.23-1.13 4.39-2.9 5.71-1.87 1.38-4.39 1.72-6.59 1.1-2.21-.61-4.04-2.24-4.83-4.34-.81-2.22-.52-4.82.79-6.8 1.25-1.9 3.39-3.13 5.62-3.32.06 1.35.03 2.71.04 4.07-1.18.23-2.35.85-3.08 1.83-.71.97-.89 2.27-.53 3.42.34 1.14 1.28 2.05 2.43 2.37 1.18.33 2.51.13 3.48-.6.94-.7 1.46-1.81 1.54-2.98.05-4.47.03-8.94.04-13.41.01-1.28-.01-2.55.02-3.83z"/></svg>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~01e9ec50f455c8b3be?mp_source=share" target="_blank" title="Upwork" aria-label="Perfil de Upwork">
+                <svg viewBox="0 0 24 24"><path d="M17.4 6c-1.7 0-3.2 1.1-3.8 2.6-1.4-2.3-2.3-4.9-2.5-7.6H7.8c.1 2 .5 3.9 1.1 5.7L6.6 15c-1 2.6-3.4 4.3-6.2 4.3v3c3.8 0 7.2-2.2 8.8-5.6l2.3-8.1c.3 1.9 1.1 3.7 2.2 5.2l-3.3 8.3h3.5l2-5.1c.5.2 1 .3 1.5.3 3.6 0 6.6-3 6.6-6.6S21 6 17.4 6zm0 10.1c-1.3 0-2.4-.6-3-1.6l.7-2.6c.5-.9 1.4-1.5 2.3-1.5 1.9 0 3.4 1.5 3.4 3.4-.1 1.2-1 2.3-3.4 2.3z"/></svg>
+            </a>
+            <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" title="Agendar Reunión" class="calendar-icon" aria-label="Agendar Reunión">
+                <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+            </a>
+        </div>
+
+        <div class="menu">
+            <a href="#" class="menu-item active" onclick="openAboutModal(event)">Sobre mí</a>
+            <a href="#trabajos" class="menu-item">Trabajos realizados</a>
+            <a href="#servicios" class="menu-item">Servicios</a>
+        </div>
+    </div>
+
+    <div class="main-area">
+        <div class="hero-section" onmouseenter="playBeep()">
+            <div class="laser-scan"></div>
+            <div class="runic-circle"></div>
+            <h1 class="hero-title glitch-effect">Data Scientist <br><span>+ AI automation.</span></h1>
+            <div class="typing-container">
+                <div class="typing-text">synergy for intelligence system.</div>
+            </div>
+            <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" class="hero-cta" data-i18n="heroCta">Agendar Asesoría</a>
+            <!-- Audio oculto para el bip electrónico -->
+            <audio id="beep-sound" src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVoGAACBhYqPjYyMj46PjI2PjoyOj4yNj46Mjo+MjY+OjI6PjI2PjoyOj4yNj46Mjo+MjY+OjI6PjI2PjoyOj4yNj46Mjo+MjY+OjI6PjI2PjoyOj4yNjw==" preload="auto"></audio>
+        </div>
+
+        <div class="tech-marquee reveal">
+            <div class="marquee-content">
+                <span>Python</span><span>SQL</span><span>n8n</span><span>AWS</span><span>Astro</span><span>Power BI</span><span>JavaScript</span><span>Tableau</span>
+                <span>Python</span><span>SQL</span><span>n8n</span><span>AWS</span><span>Astro</span><span>Power BI</span><span>JavaScript</span><span>Tableau</span>
+            </div>
+        </div>
+
+        <div id="trabajos" style="padding-top:2rem; margin-top:-2rem;"></div>
+        <h3 class="section-title reveal">Trabajos Realizados</h3>
+        <div class="filter-container reveal">
+            <button class="filter-btn active" onclick="filterProjects('all')">Todos</button>
+            <button class="filter-btn" onclick="filterProjects('web')">Web & Gestión</button>
+            <button class="filter-btn" onclick="filterProjects('data')">Data & Automations</button>
+        </div>
+        <div class="bento-grid">
+            
+            <!-- Proyectos Principales (Webs) -->
+            <a href="#" onclick="openCaseStudy('lincoln', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
+                <h2 style="color: #FBBF24;">Lincoln Physiotherapies</h2>
+                <p>Plataforma web con integración Front-End y Arquitectura Back-End (n8n). Captura de leads automática, agendamientos y embudos de ventas para clínica.</p>
+                <div class="card-footer">
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Web & n8n</span>
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="openCaseStudy('famores', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
+                <h2 style="color: #FBBF24;">Famores</h2>
+                <p>Arquitectura de Checkout, optimización de UX y Automatización Operativa. Integración de pasarelas de pago Flow con mensajería inteligente por WhatsApp.</p>
+                <div class="card-footer">
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Checkout & Flow</span>
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="openCaseStudy('petexotic', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
+                <h2 style="color: #FBBF24;">Pet Exotic</h2>
+                <p>Sitio web interno/público para clínica veterinaria. Optimización de procesos administrativos, gestión de información de valor de consultas y digitalización de flujos.</p>
+                <div class="card-footer">
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Web & Gestión</span>
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
+                </div>
+            </a>
+
+            <a href="https://github.com/sashaalcalavyh-lang/famores-app" target="_blank" class="card reveal" data-category="web">
+                <h2>Famores App</h2>
+                <p>MVP Transaccional Famores - Landing Page en Astro con integración a Google Sheets</p>
+                <div class="card-footer">
+                    <span class="badge">Astro</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/famores" target="_blank" class="card reveal" data-category="web">
+                <h2>Famores</h2>
+                <p>Automatización y modelado 3D.</p>
+                <div class="card-footer">
+                    <span class="badge">HTML</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/prueba-redes-neuronales" target="_blank" class="card reveal" data-category="data">
+                <h2>Prueba Redes Neuronales</h2>
+                <p>Automatización y modelado 3D.</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/cnn-escenarios-naturales" target="_blank" class="card reveal" data-category="data">
+                <h2>Cnn Escenarios Naturales</h2>
+                <p>Clasificación de imágenes con TensorFlow</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/prediccion-cancelacion-hotel" target="_blank" class="card reveal" data-category="data">
+                <h2>Prediccion Cancelacion Hotel</h2>
+                <p>Automatización y modelado 3D.</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/blood-disease-prediction-ml" target="_blank" class="card reveal" data-category="data">
+                <h2>Blood Disease Prediction Ml</h2>
+                <p>Machine learning project to predict liver disease using blood biomarkers. Includes data cleaning, EDA, Elastic Net, XGBoost, hyperparameter tuning and model comparison.</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/customer-churn-neural-network-analysis" target="_blank" class="card reveal" data-category="data">
+                <h2>Customer Churn Neural Network Analysis</h2>
+                <p>Customer churn prediction project using Random Forest feature selection and Neural Networks.</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/desafio-cardiopatia-ensambles" target="_blank" class="card reveal" data-category="data">
+                <h2>Desafio Cardiopatia Ensambles</h2>
+                <p>Machine Learning project for heart disease prediction using AdaBoost, Gradient Boosting and XGBoost.</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/customer-churn-prediction" target="_blank" class="card reveal" data-category="data">
+                <h2>Customer Churn Prediction</h2>
+                <p>Machine Learning project to predict telecom customer churn using Decision Trees, Bagging, Random Forest, SMOTE, GridSearchCV and ROC/AUC analysis.</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/listacontailwindcss" target="_blank" class="card reveal" data-category="web">
+                <h2>Listacontailwindcss</h2>
+                <p>Lista de parctica con tailwind css</p>
+                <div class="card-footer">
+                    <span class="badge">HTML</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/Bot-en-Telegram-con-un-flujo-b-sico" target="_blank" class="card reveal" data-category="data">
+                <h2>Bot En Telegram Con Un Flujo B Sico</h2>
+                <p>Workflow en n8n que conecta Telegram Bot API para responder comandos personalizados, usando nodos IF, Switch y Date & Time, con manejo de errores y respuestas automatizadas.</p>
+                <div class="card-footer">
+                    <span class="badge">Multi</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/formulario-n8n" target="_blank" class="card reveal" data-category="web">
+                <h2>Formulario N8N</h2>
+                <p>Formulario HTML conectado a n8n con webhook, validación IF, almacenamiento en Google Sheets y envío de email.</p>
+                <div class="card-footer">
+                    <span class="badge">HTML</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+            <a href="https://github.com/sashaalcalavyh-lang/introduccion-machine-learning" target="_blank" class="card reveal" data-category="data">
+                <h2>Introduccion Machine Learning</h2>
+                <p>Automatización y modelado 3D.</p>
+                <div class="card-footer">
+                    <span class="badge">Jupyter Notebook</span>
+                    <span class="badge">★ 0</span>
+                </div>
+            </a>
+        </div>
+
+        <div id="servicios" class="services-section">
+            <h3 class="section-title reveal">Servicios</h3>
+            <div class="services-grid">
+                
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Automatización de Tareas (n8n)</h3>
+                        <p>Conecto tus aplicaciones del día a día (como agendas y planillas) para que trabajen solas. Elimino el ingreso manual de información, ahorrando horas de trabajo y reduciendo el margen de error a cero.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Embudos de Cobro y Seguimiento</h3>
+                        <p>Diseño flujos automáticos que disparan correos personalizados a tus clientes. Desde el resumen de la atención hasta el enlace de pago directo integrado, reduciendo la fricción para que cobres más rápido.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Estructuración de Datos</h3>
+                        <p>Mi cerebro detecta patrones y ordena la información. Tomo bases de datos desordenadas y las transformo mediante lógica implacable en sistemas limpios y organizados, listos para ser utilizados.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm6 14H7v-5h2v5zm4 0h-2v-9h2v9zm4 0h-2v-3h2v3z"/></svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Análisis y Reportes Claros</h3>
+                        <p>Traduzco la información acumulada de tu operación en reportes visuales simples. Te entrego el escenario real de tu negocio para que tomes decisiones basadas en evidencia, nunca más en intuición.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Integración Web y Reservas</h3>
+                        <p>Configuro y optimizo plataformas de agendamiento para capturar clientes automáticamente. Hago que la información viaje directo desde el clic en tu web hasta tu base de datos sin que muevas un dedo.</p>
+                    </div>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <div class="service-content">
+                        <h3>Optimización de UX Front-End</h3>
+                        <p>Audito y limpio visualmente tu plataforma web. Elimino la fricción en el proceso de compra estandarizando los pasos, para que el cliente tenga un viaje rápido, claro y enfocado en la conversión.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="testimonios" class="services-section" style="margin-top: 4rem;">
+            <h3 class="section-title reveal" data-i18n="sectionTestimonials">Testimonios</h3>
+            <div class="services-grid">
+                
+                <div class="service-card reveal" style="border-color: rgba(251, 191, 36, 0.4);">
+                    <div class="service-content">
+                        <p style="font-style: italic; color: #fff;" data-i18n="test1Desc">"La automatización de nuestros agendamientos nos ahorró casi 20 horas semanales de gestión manual. El sistema funciona solo."</p>
+                        <h4 style="color: var(--slime-blue); margin-top: 1rem;">- Clínica Lincoln</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="test1Role">Automatización n8n & Reservas</span>
+                    </div>
+                </div>
+
+                <div class="service-card reveal" style="border-color: rgba(251, 191, 36, 0.4);">
+                    <div class="service-content">
+                        <p style="font-style: italic; color: #fff;" data-i18n="test2Desc">"El nuevo flujo de checkout y los recordatorios automáticos por WhatsApp aumentaron nuestra conversión de pagos un 30%."</p>
+                        <h4 style="color: var(--slime-blue); margin-top: 1rem;">- Famores</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="test2Role">Optimización UX & Pagos</span>
+                    </div>
+                </div>
+
+                <div class="service-card reveal" style="border-color: rgba(251, 191, 36, 0.4);">
+                    <div class="service-content">
+                        <p style="font-style: italic; color: #fff;" data-i18n="test3Desc">"Organizó nuestra base de datos por completo y nos entregó visibilidad real sobre qué consultas generan más ingresos."</p>
+                        <h4 style="color: var(--slime-blue); margin-top: 1rem;">- Pet Exotic</h4>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="test3Role">Estructuración de Datos</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" class="fab">
+        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
+    </a>
+
+    <!-- Modal Caso de Estudio -->
+    <div id="caseStudyModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-scan"></div>
+            <span class="close-modal" onclick="closeCaseStudyModal()">&times;</span>
+            <div class="modal-inner">
+                <div class="modal-header" style="margin-bottom: 1.5rem;">
+                    <h2 id="cs-title" style="font-size: 2rem; color: #FBBF24;">Título</h2>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--slime-blue); margin-bottom: 0.5rem;" data-i18n="csProblemTitle">El Desafío</h4>
+                    <p id="cs-problem" style="color: var(--text-muted); line-height: 1.6;">...</p>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--slime-blue); margin-bottom: 0.5rem;" data-i18n="csSolutionTitle">La Solución</h4>
+                    <p id="cs-solution" style="color: var(--text-muted); line-height: 1.6;">...</p>
+                </div>
+                <div style="margin-bottom: 1.5rem; padding: 1rem; background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 10px;">
+                    <h4 style="color: #FBBF24; margin-bottom: 0.5rem;" data-i18n="csResultTitle">Impacto / KPIs</h4>
+                    <ul id="cs-results" style="color: #fff; margin-left: 1.5rem; line-height: 1.6;"></ul>
+                </div>
+                <a id="cs-link" href="#" target="_blank" class="hero-cta" style="margin-top: 0; padding: 0.5rem 1.5rem; font-size: 1rem;" data-i18n="csVisit">Visitar Sitio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sobre Mí -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-scan"></div>
+            <span class="close-modal" onclick="closeAboutModal()">&times;</span>
+            <div class="modal-inner">
+                <div class="modal-header">
+                    <h2 class="glitch-effect">SASHA ALCALÁ</h2>
+                    <p class="subtitle">Data Scientist & Analyst | Automatización de Procesos con IA (n8n) | Soluciones Cloud</p>
+                    <div class="contact-info">
+                    <span>📍 Valparaíso / Santiago, Chile</span>
+                    <span>✉️ sashaalcalavyh@gmail.com</span>
+                </div>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-link active" onclick="openTab(event, 'tab-perfil')">Perfil Profesional</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-aptitudes')">Aptitudes y Tecnologías</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-experiencia')">Experiencia</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-educacion')">Educación</button>
+            </div>
+
+            <div id="tab-perfil" class="tab-content" style="display:block;">
+                <p>Me dedico al análisis de datos y a crear automatizaciones inteligentes para simplificar el día a día de los equipos de trabajo. Al venir del rubro de la gestión y los servicios, viví de cerca cómo el desorden administrativo le quita tiempo valioso a un negocio. Como entiendo perfectamente esos problemas desde adentro, combino esa mirada práctica con herramientas como Python, SQL, n8n y tecnologías Cloud. Lo que hago es crear soluciones inteligentes que eliminan las tareas repetitivas, para que el equipo tome decisiones basadas en datos reales y evidencia, en lugar de simples intuiciones. Hoy busco sumarme a un equipo innovador, de forma remota, que me desafíe a seguir evolucionando como profesional mientras aporto valor real.</p>
+            </div>
+
+            <div id="tab-aptitudes" class="tab-content">
+                <div style="width: 100%; max-width: 350px; margin: 0 auto 2rem;">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                <ul>
+                    <li><strong>Análisis y Datos:</strong> Python, SQL, Análisis Estadístico, Limpieza de Datos (Data Wrangling), Power BI, Tableau.</li>
+                    <li><strong>Desarrollo y UX:</strong> Astro, JavaScript (Vanilla), CSS, GitHub (Control de versiones), Diseño de embudos de conversión (UI/UX).</li>
+                    <li><strong>Inteligencia Artificial:</strong> Procesamiento de Lenguaje Natural (NLP), Redes Neuronales Profundas (DNN), Aprendizaje Profundo.</li>
+                    <li><strong>Automatización y Nube:</strong> n8n, Webhooks, Integraciones de LLMs, Pasarelas de pago (Flow), Sistemas de reserva (Amelia).</li>
+                    <li><strong>Idiomas:</strong> Español (Nativo), Inglés (Elementary), Portugués (Básico/Intermedio).</li>
+                </ul>
+            </div>
+
+            <div id="tab-experiencia" class="tab-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Data Analyst & GenAI Automation Specialist | Freelance / Proyecto: Famores</h4>
+                        <span>Marzo 2026 – Junio 2026 | Remoto</span>
+                        <ul>
+                            <li><strong>Arquitectura de Checkout y UX:</strong> Refactorización front-end e integración de pagos Flow.</li>
+                            <li><strong>Automatización Operativa:</strong> Mensajería inteligente que inyecta modalidades de entrega/cobro.</li>
+                            <li><strong>Estrategia de Datos:</strong> Optimización de UI para recolección NPS y estructuración de KPIs reales.</li>
+                            <li><strong>Control de Versiones:</strong> Gestión de repositorios mediante ramificación para aislar entornos.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Web Optimization Developer | Consultoría / Cliente: Lincoln Physiotherapies</h4>
+                        <span>Mayo 2026 – Presente | Remoto</span>
+                        <ul>
+                            <li><strong>Optimización UI/UX Front-End:</strong> Auditoría visual y estandarización de componentes de servicio.</li>
+                            <li><strong>Arquitectura Back-End (n8n):</strong> Captura automática de leads desde Amelia a Google Sheets vía Webhooks.</li>
+                            <li><strong>Embudo de Ventas (Upsell):</strong> Flujo automatizado con correos personalizados y enlaces de pago directos.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Practicante en Automatización y Análisis de Datos | Language Center Chile</h4>
+                        <span>Marzo 2026 – Junio 2026 | Remoto</span>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Desarrollo de automatizaciones básicas para optimizar procesos y gestión de proyectos con Discord/Google Classroom.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Ejecutivo Integral Administrativo | Pet Exotic Clínica Veterinaria</h4>
+                        <span>Julio 2024 – Presente | Región de Valparaíso, Chile</span>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Optimización de procesos administrativos, gestión de agenda y apoyo en la digitalización interna.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Research & Automation Assistant | Mentorías para el Éxito</h4>
+                        <span>Mayo 2025 – Octubre 2025 | Remoto</span>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Investigación y validación de mercado con IA, gestión de datasets en Notion e insights apoyados en Gemini/ChatGPT.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Roles Anteriores Adicionales</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Auxiliar de Hotelería (Verso Hotel), Ejecutivo de Cuentas B2B (TRANVIAL), Administradora de local, Guía Turística, y Account Manager (Comercializadora MBC).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-educacion" class="tab-content">
+                <ul>
+                    <li><strong>Modelos Avanzados y Redes Neuronales, Data Science</strong> | Desafío Latam (Abril 2026 – Mayo 2026)</li>
+                    <li><strong>Data Scientist con Python</strong> | Desafío Latam (Abril 2025 – Mayo 2026)</li>
+                    <li><strong>Data Analyst con Python</strong> | Desafío Latam (Julio 2025 – Febrero 2026)</li>
+                    <li><strong>IBM Data Analyst Specialization</strong> | Coursera (Marzo 2024 – Agosto 2024)</li>
+                    <li><strong>Técnico de Nivel Superior en Turismo Sustentable</strong> | Instituto Profesional Los Leones (2016 – 2019)</li>
+                </ul>
+                <h4 style="margin-top:2rem; color:var(--slime-blue);">Certificaciones</h4>
+                <ul style="margin-top:0.5rem;">
+                    <li>Análisis estadístico con Python</li>
+                    <li>Fundamentos de la comunicación</li>
+                    <li>Fundamentos de la gestión del tiempo</li>
+                    <li>Etiqueta empresarial: Teléfono, email y mensajes</li>
+                    <li>Toma de notas para profesionales</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openAboutModal(e) {
+            if(e) e.preventDefault();
+            document.getElementById('aboutModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeAboutModal() {
+            document.getElementById('aboutModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        function closeCaseStudyModal() {
+            document.getElementById('caseStudyModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        window.onclick = function(event) {
+            let aboutModal = document.getElementById('aboutModal');
+            let csModal = document.getElementById('caseStudyModal');
+            if (event.target == aboutModal) closeAboutModal();
+            if (event.target == csModal) closeCaseStudyModal();
+        }
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) tabcontent[i].style.display = "none";
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) tablinks[i].className = tablinks[i].className.replace(" active", "");
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        function playBeep() {
+            let beep = document.getElementById('beep-sound');
+            if(beep) { beep.volume = 0.2; beep.play().catch(e => {}); }
+        }
+        
+        function filterProjects(category) {
+            let btns = document.getElementsByClassName('filter-btn');
+            for(let btn of btns) btn.classList.remove('active');
+            event.target.classList.add('active');
+            let cards = document.querySelectorAll('.bento-grid .card');
+            cards.forEach(card => {
+                if(category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'none';
+                    card.offsetHeight;
+                    card.style.animation = null;
+                } else card.style.display = 'none';
+            });
+        }
+
+        const caseStudies = {
+            lincoln: { title: "Lincoln Physiotherapies", problem: "La clínica perdía decenas de horas semanales en la gestión manual de agendamientos y correos de seguimiento, generando cuellos de botella y pérdida de clientes potenciales.", solution: "Arquitectura B2B utilizando n8n para conectar los formularios web con la base de datos de pacientes, creando un embudo automatizado de captación y reservas directas.", results: ["<li>+40% en eficiencia operativa y ahorro de 20hrs/semana.</li>", "<li>0% de error en el ingreso de datos manual.</li>", "<li>Aumento del 25% en reservas concretadas.</li>"], link: "https://lincolnphysiotherapist.com" },
+            famores: { title: "Famores", problem: "El flujo de compra generaba fricción y los clientes abandonaban el carrito, sumado a una mala trazabilidad de los pagos por parte de la administración.", solution: "Optimización de la UX del Front-End en el checkout, junto a la integración directa de la pasarela de pagos Flow y un sistema de notificaciones por WhatsApp.", results: ["<li>+30% de aumento en la tasa de conversión.</li>", "<li>Checkout reducido a solo 3 pasos simples.</li>", "<li>Trazabilidad en tiempo real de ingresos.</li>"], link: "https://famores.com" },
+            petexotic: { title: "Pet Exotic", problem: "Desorden administrativo y falta de claridad en los servicios ofrecidos, dificultando la visibilidad del negocio para nuevos clientes y el control interno.", solution: "Desarrollo de un portal integral para digitalizar flujos de información y estandarizar los valores de consultas, implementando bases de datos escalables.", results: ["<li>Digitalización total de la gestión de precios.</li>", "<li>Mayor accesibilidad para los pacientes.</li>", "<li>Estructuración limpia de la base de datos interna.</li>"], link: "https://sites.google.com/petexotic.cl/valorconsulta/página-principal" }
+        };
+
+        function openCaseStudy(id, e) {
+            if(e) e.preventDefault();
+            const data = caseStudies[id];
+            document.getElementById('cs-title').innerText = data.title;
+            document.getElementById('cs-problem').innerText = data.problem;
+            document.getElementById('cs-solution').innerText = data.solution;
+            document.getElementById('cs-results').innerHTML = data.results.join('');
+            document.getElementById('cs-link').href = data.link;
+            document.getElementById('caseStudyModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        const i18n = {
+            es: { heroCta: "Agendar Asesoría", sectionTestimonials: "Testimonios",
+                  csProblemTitle: "El Desafío", csSolutionTitle: "La Solución", csResultTitle: "Impacto / KPIs", csVisit: "Visitar Sitio",
+                  test1Desc: '"La automatización de nuestros agendamientos nos ahorró casi 20 horas semanales de gestión manual. El sistema funciona solo."', test1Role: "Automatización n8n & Reservas",
+                  test2Desc: '"El nuevo flujo de checkout y los recordatorios automáticos por WhatsApp aumentaron nuestra conversión de pagos un 30%."', test2Role: "Optimización UX & Pagos",
+                  test3Desc: '"Organizó nuestra base de datos por completo y nos entregó visibilidad real sobre qué consultas generan más ingresos."', test3Role: "Estructuración de Datos"
+            },
+            en: { heroCta: "Book a Call", sectionTestimonials: "Testimonials",
+                  csProblemTitle: "The Challenge", csSolutionTitle: "The Solution", csResultTitle: "Impact / KPIs", csVisit: "Visit Site",
+                  test1Desc: '"Automating our scheduling saved us almost 20 hours a week of manual management. The system runs itself."', test1Role: "n8n Automation & Booking",
+                  test2Desc: '"The new checkout flow and automated WhatsApp reminders boosted our payment conversion rate by 30%."', test2Role: "UX Optimization & Payments",
+                  test3Desc: '"Completely organized our database and gave us real visibility into which consultations generate the most revenue."', test3Role: "Data Structuring"
+            }
+        };
+
+        let currentLang = 'es';
+        function toggleLang() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('lang-es').classList.toggle('active', currentLang === 'es');
+            document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                let key = el.getAttribute('data-i18n');
+                if(i18n[currentLang][key]) el.innerHTML = i18n[currentLang][key];
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            const particleContainer = document.createElement('div');
+            particleContainer.className = 'particles-layer';
+            document.querySelector('.main-area').prepend(particleContainer);
+            for(let i=0; i<30; i++) {
+                let p = document.createElement('div');
+                p.className = 'particle';
+                let size = Math.random() * 4 + 2;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                p.style.animationDelay = (Math.random() * 5) + 's';
+                particleContainer.appendChild(p);
+            }
+
+            // Chart.js Radar
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Data Analysis', 'n8n Automation', 'SQL/Databases', 'Front-End UX', 'Python Dev'],
+                    datasets: [{
+                        label: 'Skill Level',
+                        data: [90, 95, 85, 80, 88],
+                        backgroundColor: 'rgba(56, 189, 248, 0.2)',
+                        borderColor: '#38BDF8',
+                        pointBackgroundColor: '#FBBF24',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#FBBF24'
+                    }]
+                },
+                options: {
+                    scales: { r: { angleLines: { color: 'rgba(255, 255, 255, 0.1)' }, grid: { color: 'rgba(255, 255, 255, 0.1)' }, pointLabels: { color: '#9CA3AF', font: { size: 12 } }, ticks: { display: false, min: 0, max: 100 } } },
+                    plugins: { legend: { display: false } },
+                    elements: { line: { borderWidth: 2 } }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

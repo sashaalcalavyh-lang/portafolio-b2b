@@ -38,10 +38,29 @@ html_parts.append("""<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sasha | Data Scientist & AI Automation</title>
     <meta name="description" content="Portafolio de Sasha Alcalá. Data Scientist, Analista de Datos y Especialista en Automatización de Procesos con IA.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Sasha Alcalá">
+    <meta name="keywords" content="Data Scientist, AI Automation, Python, SQL, n8n, Automatización de Procesos, Portafolio Web">
     <meta property="og:title" content="Sasha Alcalá | Data & AI Automation">
     <meta property="og:description" content="Automatizo procesos operativos y diseño estrategias de datos para escalar negocios sin fricción.">
     <meta property="og:image" content="public/Foto cv.png">
     <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sasha Alcalá",
+      "jobTitle": "Data Scientist & AI Automation Specialist",
+      "url": "https://sashaalcalavyh-lang.github.io/portafolio-b2b/",
+      "image": "https://sashaalcalavyh-lang.github.io/portafolio-b2b/public/Foto%20cv.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/sasha-alcala/",
+        "https://www.instagram.com/vidayahora/",
+        "https://www.tiktok.com/@vidayahora"
+      ],
+      "knowsAbout": ["Data Science", "Python", "SQL", "n8n Automation", "Business Intelligence"]
+    }
+    </script>
     <style>
         :root {
             --bg-night: #0B0C10;
@@ -207,9 +226,10 @@ html_parts.append("""<!DOCTYPE html>
         @keyframes floatUp { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 20% { opacity: 0.8; } 100% { transform: translateY(-10vh) scale(1); opacity: 0; } }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </head>
 <body>
-    <div class="sidebar">
+    <aside class="sidebar" aria-label="Perfil y Navegación">
         <div class="lang-toggle">
             <span id="lang-es" class="active" onclick="toggleLang('es')">ES</span> / <span id="lang-en" onclick="toggleLang('en')">EN</span> / <span id="lang-pt" onclick="toggleLang('pt')">PT</span>
         </div>
@@ -234,15 +254,15 @@ html_parts.append("""<!DOCTYPE html>
             </a>
         </div>
 
-        <div class="menu">
+        <nav class="menu" role="navigation" aria-label="Menú principal">
             <a href="#" class="menu-item active" onclick="openAboutModal(event)" data-i18n="menuAbout">Sobre mí</a>
             <a href="#trabajos" class="menu-item" data-i18n="menuWork">Trabajos realizados</a>
             <a href="#servicios" class="menu-item" data-i18n="menuServices">Servicios</a>
-        </div>
-    </div>
+        </nav>
+    </aside>
 
-    <div class="main-area">
-        <div class="hero-section" onmouseenter="playBeep()">
+    <main class="main-area" role="main">
+        <section class="hero-section" aria-label="Introducción" onmouseenter="playBeep()">
             <div class="laser-scan"></div>
             <div class="runic-circle"></div>
             <h1 class="hero-title glitch-effect">Data Scientist <br><span>+ AI automation.</span></h1>
@@ -261,9 +281,9 @@ html_parts.append("""<!DOCTYPE html>
             </div>
         </div>
 
-        <div id="trabajos" style="padding-top:2rem; margin-top:-2rem;"></div>
-        <h3 class="section-title reveal" data-i18n="sectionWork">Trabajos Realizados</h3>
-        <div class="filter-container reveal">
+        <section id="trabajos" style="padding-top:2rem; margin-top:-2rem;" aria-labelledby="work-title">
+        <h3 id="work-title" class="section-title reveal" data-i18n="sectionWork">Trabajos Realizados</h3>
+        <div class="filter-container reveal" role="group" aria-label="Filtros de proyectos">
             <button class="filter-btn active" onclick="filterProjects('all')" data-i18n="filterAll">Todos</button>
             <button class="filter-btn" onclick="filterProjects('web')" data-i18n="filterWeb">Web & Gestión</button>
             <button class="filter-btn" onclick="filterProjects('data')" data-i18n="filterData">Data & Automations</button>
@@ -271,7 +291,7 @@ html_parts.append("""<!DOCTYPE html>
         <div class="bento-grid">
             
             <!-- Proyectos Principales (Webs) -->
-            <a href="#" onclick="openCaseStudy('lincoln', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
+            <a href="#" onclick="openCaseStudy('lincoln', event)" class="card reveal" data-category="web" role="article" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
                 <h2 style="color: #FBBF24;">Lincoln Physiotherapies</h2>
                 <p data-i18n="cardLincolnDesc">Plataforma web con integración Front-End y Arquitectura Back-End (n8n). Captura de leads automática, agendamientos y embudos de ventas para clínica.</p>
                 <div class="card-footer">
@@ -280,7 +300,7 @@ html_parts.append("""<!DOCTYPE html>
                 </div>
             </a>
             
-            <a href="#" onclick="openCaseStudy('famores', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
+            <a href="#" onclick="openCaseStudy('famores', event)" class="card reveal" data-category="web" role="article" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
                 <h2 style="color: #FBBF24;">Famores</h2>
                 <p data-i18n="cardFamoresDesc">Arquitectura de Checkout, optimización de UX y Automatización Operativa. Integración de pasarelas de pago Flow con mensajería inteligente por WhatsApp.</p>
                 <div class="card-footer">
@@ -289,11 +309,20 @@ html_parts.append("""<!DOCTYPE html>
                 </div>
             </a>
             
-            <a href="#" onclick="openCaseStudy('petexotic', event)" class="card reveal" data-category="web" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
+            <a href="#" onclick="openCaseStudy('petexotic', event)" class="card reveal" data-category="web" role="article" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
                 <h2 style="color: #FBBF24;">Pet Exotic</h2>
                 <p data-i18n="cardPetDesc">Sitio web interno/público para clínica veterinaria. Optimización de procesos administrativos, gestión de información de valor de consultas y digitalización de flujos.</p>
                 <div class="card-footer">
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Web & Gestión</span>
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
+                </div>
+            </a>
+            
+            <a href="#" onclick="openCaseStudy('portafolio', event)" class="card reveal" data-category="web" role="article" style="border-color: rgba(251, 191, 36, 0.4); box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.05), 0 5px 20px rgba(0,0,0,0.5);">
+                <h2 style="color: #FBBF24;">Portafolio B2B</h2>
+                <p data-i18n="cardPortafolioDesc">Desarrollo de un portafolio web personal utilizando un script automatizado en Python para integrar la API de GitHub dinámicamente sin frameworks pesados.</p>
+                <div class="card-footer">
+                    <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">Python & API Fetching</span>
                     <span class="badge" style="background: rgba(251, 191, 36, 0.15); color: #FBBF24;">★ Featured</span>
                 </div>
             </a>
@@ -303,7 +332,7 @@ html_parts.append("""<!DOCTYPE html>
 for p in portfolio_data:
     cat = "web" if p['language'] in ['HTML', 'Astro', 'TypeScript', 'JavaScript', 'CSS'] else "data"
     html_parts.append(f"""
-            <a href="{p['url']}" target="_blank" rel="noopener noreferrer" class="card reveal" data-category="{cat}">
+            <a href="{p['url']}" target="_blank" rel="noopener noreferrer" class="card reveal" data-category="{cat}" role="article">
                 <h2>{p['name']}</h2>
                 <p data-i18n="repo_{p['name'].replace(' ', '_')}">{p['description']}</p>
                 <div class="card-footer">
@@ -313,10 +342,10 @@ for p in portfolio_data:
             </a>""")
 
 html_parts.append("""
-        </div>
+        </section>
 
-        <div id="servicios" class="services-section">
-            <h3 class="section-title reveal" data-i18n="sectionServices">Servicios</h3>
+        <section id="servicios" class="services-section" aria-labelledby="services-title">
+            <h3 id="services-title" class="section-title reveal" data-i18n="sectionServices">Servicios</h3>
             <div class="services-grid">
                 
                 <div class="service-card reveal">
@@ -382,8 +411,8 @@ html_parts.append("""
             </div>
         </div>
 
-        <div id="testimonios" class="services-section" style="margin-top: 4rem;">
-            <h3 class="section-title reveal" data-i18n="sectionTestimonials">Testimonios</h3>
+        <section id="testimonios" class="services-section" style="margin-top: 4rem;" aria-labelledby="testimonials-title">
+            <h3 id="testimonials-title" class="section-title reveal" data-i18n="sectionTestimonials">Testimonios</h3>
             <div class="services-grid">
                 
                 <div class="service-card reveal" style="border-color: rgba(251, 191, 36, 0.4);">
@@ -411,10 +440,20 @@ html_parts.append("""
                 </div>
 
             </div>
-        </div>
+        </section>
 
-    </div>
-    <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" rel="noopener noreferrer" class="fab">
+        <footer style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid rgba(56, 189, 248, 0.1); display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center;">
+            <div class="badge-base LI-profile-badge" data-locale="es_ES" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="sasha-alcala" data-version="v1">
+                <a class="badge-base__link LI-simple-link" href="https://cl.linkedin.com/in/sasha-alcala?trk=profile-badge">Sasha Alcalá</a>
+            </div>
+            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+                <p>&copy; Copyright <strong style="color: var(--text-main);">Sasha Alcalá Data Analyst</strong> | Analista de Datos | AI Automation</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Designed & Automated with Python</p>
+            </div>
+        </footer>
+
+    </main>
+    <a href="https://calendar.app.google/kiEf2TUWi6S6Ppp2A" target="_blank" rel="noopener noreferrer" class="fab" aria-label="Botón flotante para agendar reunión">
         <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>
     </a>
 
@@ -599,7 +638,8 @@ html_parts.append("""
         const caseStudies = {
             lincoln: { title: "Lincoln Physiotherapies", problem: "La clínica perdía decenas de horas semanales en la gestión manual de agendamientos y correos de seguimiento, generando cuellos de botella y pérdida de clientes potenciales.", solution: "Arquitectura B2B utilizando n8n para conectar los formularios web con la base de datos de pacientes, creando un embudo automatizado de captación y reservas directas.", results: ["<li>+40% en eficiencia operativa y ahorro de 20hrs/semana.</li>", "<li>0% de error en el ingreso de datos manual.</li>", "<li>Aumento del 25% en reservas concretadas.</li>"], link: "https://lincolnphysiotherapist.com" },
             famores: { title: "Famores", problem: "El flujo de compra generaba fricción y los clientes abandonaban el carrito, sumado a una mala trazabilidad de los pagos por parte de la administración.", solution: "Optimización de la UX del Front-End en el checkout, junto a la integración directa de la pasarela de pagos Flow y un sistema de notificaciones por WhatsApp.", results: ["<li>+30% de aumento en la tasa de conversión.</li>", "<li>Checkout reducido a solo 3 pasos simples.</li>", "<li>Trazabilidad en tiempo real de ingresos.</li>"], link: "https://famores.com" },
-            petexotic: { title: "Pet Exotic", problem: "Desorden administrativo y falta de claridad en los servicios ofrecidos, dificultando la visibilidad del negocio para nuevos clientes y el control interno.", solution: "Desarrollo de un portal integral para digitalizar flujos de información y estandarizar los valores de consultas, implementando bases de datos escalables.", results: ["<li>Digitalización total de la gestión de precios.</li>", "<li>Mayor accesibilidad para los pacientes.</li>", "<li>Estructuración limpia de la base de datos interna.</li>"], link: "https://sites.google.com/petexotic.cl/valorconsulta/página-principal" }
+            petexotic: { title: "Pet Exotic", problem: "Desorden administrativo y falta de claridad en los servicios ofrecidos, dificultando la visibilidad del negocio para nuevos clientes y el control interno.", solution: "Desarrollo de un portal integral para digitalizar flujos de información y estandarizar los valores de consultas, implementando bases de datos escalables.", results: ["<li>Digitalización total de la gestión de precios.</li>", "<li>Mayor accesibilidad para los pacientes.</li>", "<li>Estructuración limpia de la base de datos interna.</li>"], link: "https://sites.google.com/petexotic.cl/valorconsulta/página-principal" },
+            portafolio: { title: "Portafolio Automático", problem: "Necesidad de crear un portafolio profesional para exhibir proyectos de datos y automatizaciones, sin depender de constructores lentos o código estático difícil de mantener.", solution: "Desarrollo de un generador web utilizando Python (builder.py) que consume la API de GitHub para mostrar repositorios públicos y construye todo el HTML dinámicamente con estética B2B.", results: ["<li>Generación instantánea de portafolio (Zero config)</li>", "<li>Sincronización en tiempo real con GitHub API</li>", "<li>Estructura modular en un solo script mantenible</li>"], link: "https://github.com/sashaalcalavyh-lang/portafolio-b2b" }
         };
 
         function openCaseStudy(id, e) {
@@ -627,6 +667,7 @@ html_parts.append("""
                   srv4Title: "Análisis y Reportes Claros", srv4Desc: "Traduzco la información acumulada de tu operación en reportes visuales simples. Te entrego el escenario real de tu negocio para que tomes decisiones basadas en evidencia, nunca más en intuición.",
                   srv5Title: "Integración Web y Reservas", srv5Desc: "Configuro y optimizo plataformas de agendamiento para capturar clientes automáticamente. Hago que la información viaje directo desde el clic en tu web hasta tu base de datos sin que muevas un dedo.",
                   srv6Title: "Optimización de UX Front-End", srv6Desc: "Audito y limpio visualmente tu plataforma web. Elimino la fricción en el proceso de compra estandarizando los pasos, para que el cliente tenga un viaje rápido, claro y enfocado en la conversión.",
+                  cardPortafolioDesc: "Desarrollo de un portafolio web personal utilizando un script automatizado en Python para integrar la API de GitHub dinámicamente sin frameworks pesados.", csProblemPortafolio: "Necesidad de crear un portafolio profesional para exhibir proyectos de datos y automatizaciones, sin depender de constructores lentos o código estático difícil de mantener.", csSolutionPortafolio: "Desarrollo de un generador web utilizando Python (builder.py) que consume la API de GitHub para mostrar repositorios públicos y construye todo el HTML dinámicamente.", csResultPortafolio1: "Generación instantánea de portafolio (Zero config)", csResultPortafolio2: "Sincronización automática con GitHub API", csResultPortafolio3: "Estructura mantenible y ultra ligera",
                   csProblemTitle: "El Desafío", csSolutionTitle: "La Solución", csResultTitle: "Impacto / KPIs", csVisit: "Visitar Sitio",
                   test1Desc: '"La automatización de nuestros agendamientos nos ahorró casi 20 horas semanales de gestión manual. El sistema funciona solo."', test1Role: "Automatización n8n & Reservas",
                   test2Desc: '"El nuevo flujo de checkout y los recordatorios automáticos por WhatsApp aumentaron nuestra conversión de pagos un 30%."', test2Role: "Optimización UX & Pagos",
@@ -654,6 +695,7 @@ html_parts.append("""
                   srv4Title: "Clear Analysis and Reporting", srv4Desc: "I translate the accumulated data from your operation into simple visual reports. I give you the real scenario of your business so you can make evidence-based decisions, never on intuition again.",
                   srv5Title: "Web Integration and Bookings", srv5Desc: "I configure and optimize booking platforms to capture clients automatically. I make information travel directly from the click on your website to your database without lifting a finger.",
                   srv6Title: "Front-End UX Optimization", srv6Desc: "I audit and visually clean up your web platform. I eliminate friction in the purchasing process by standardizing steps, ensuring the client has a fast, clear journey focused on conversion.",
+                  cardPortafolioDesc: "Development of a personal web portfolio using an automated Python script to integrate the GitHub API dynamically without heavy frameworks.", csProblemPortafolio: "Need to create a professional portfolio to showcase data projects and automations, without relying on slow builders or hard-to-maintain static code.", csSolutionPortafolio: "Developed a web generator using Python (builder.py) that consumes the GitHub API to display public repositories and dynamically builds all HTML.", csResultPortafolio1: "Instant portfolio generation (Zero config)", csResultPortafolio2: "Automatic synchronization with GitHub API", csResultPortafolio3: "Maintainable and ultra-lightweight structure",
                   csProblemTitle: "The Challenge", csSolutionTitle: "The Solution", csResultTitle: "Impact / KPIs", csVisit: "Visit Site",
                   test1Desc: '"Automating our scheduling saved us almost 20 hours a week of manual management. The system runs itself."', test1Role: "n8n Automation & Booking",
                   test2Desc: '"The new checkout flow and automated WhatsApp reminders boosted our payment conversion rate by 30%."', test2Role: "UX Optimization & Payments",
@@ -671,6 +713,7 @@ html_parts.append("""
             },
             pt: { heroCta: "Agendar Reunião", sectionTestimonials: "Depoimentos",
                   menuAbout: "Sobre mim", menuWork: "Trabalhos realizados", menuServices: "Serviços", sectionWork: "Trabalhos Realizados", sectionServices: "Serviços", tabProfile: "Perfil Profissional", tabSkills: "Habilidades e Tecnologias", tabExp: "Experiência", tabEdu: "Educação",
+                  cardPortafolioDesc: "Desenvolvimento de um portfólio web pessoal usando um script automatizado em Python para integrar a API do GitHub dinamicamente sem frameworks pesados.", csProblemPortafolio: "Necessidade de criar um portfólio profissional para exibir projetos de dados e automações, sem depender de construtores lentos ou código estático difícil de manter.", csSolutionPortafolio: "Desenvolvimento de um gerador web usando Python (builder.py) que consome a API do GitHub para exibir repositórios públicos e constrói todo o HTML dinamicamente.", csResultPortafolio1: "Geração instantânea de portfólio (Zero config)", csResultPortafolio2: "Sincronização automática com GitHub API", csResultPortafolio3: "Estrutura sustentável e ultraleve",
                   csProblemTitle: "O Desafio", csSolutionTitle: "A Solução", csResultTitle: "Impacto / KPIs", csVisit: "Visitar Site",
                   test1Desc: '"Automatizar nossos agendamentos nos poupou quase 20 horas semanais de gestão manual. O sistema funciona sozinho."', test1Role: "Automação n8n & Reservas",
                   test2Desc: '"O novo fluxo de checkout e os lembretes automáticos no WhatsApp aumentaram nossa conversão de pagamentos em 30%."', test2Role: "Otimização UX & Pagamentos",

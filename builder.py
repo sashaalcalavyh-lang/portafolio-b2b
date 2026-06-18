@@ -161,7 +161,7 @@ html_parts.append("""<!DOCTYPE html>
 
         /* Servicios */
         .services-section { margin-top: 6rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
         .service-card { position: relative; overflow: hidden; display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.8rem; border-radius: 20px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); background: rgba(11, 12, 16, 0.5); border: 1px solid rgba(139, 92, 246, 0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.6); }
         .service-card::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent); transform: skewX(-20deg); transition: none; z-index: 0; pointer-events: none; }
         .service-card:hover::after { left: 200%; transition: left 0.6s ease-in-out; }
@@ -217,6 +217,19 @@ html_parts.append("""<!DOCTYPE html>
             .hero-section { padding: 2.5rem 1.5rem; }
             .hero-title { font-size: 2.2rem; }
             .runic-circle { right: 50%; transform: translate(50%, -50%); opacity: 0.2; }
+        }
+        @media (max-width: 480px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .main-area { padding: 1rem 0.5rem; }
+            .hero-section { padding: 1.5rem 1rem; }
+            .hero-title { font-size: 1.8rem; }
+            .card { padding: 1.5rem; }
+            .service-card { padding: 1.5rem; flex-direction: column; align-items: center; text-align: center; }
+            .filter-container { justify-content: center; gap: 0.5rem; }
+            .filter-btn { padding: 0.4rem 1rem; font-size: 0.85rem; }
+            .modal-content { width: 95%; padding: 1.5rem; margin: 10% auto; }
+            .modal-header h2 { font-size: 1.8rem; }
         }
         
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
